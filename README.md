@@ -2,14 +2,14 @@
 
 taste_buds-
 Set up locally: 
-1) Clone the application from github
+Clone the application from github
 git clone https://github.com/buenosdiazz/taste_buds-.git
-2) Make sure that you're in the taste_buds folder. You can type pwd (print working directory) in the terminal to see what folder you are in 
-3) Install all required gems
-  bundle install
-4) Type this in the terminal: rails s
-5) Point your web browser to http://localhost:3000 , the web app will be running
-   To get back to the terminal, you can stop the server by typing control c
+Make sure that you're in the taste_buds folder. You can type pwd (print working directory) in the terminal to see what folder you are in 
+Install all required gems
+bundle install
+Type this in the terminal: rails s
+Point your web browser to http://localhost:3000 , the web app will be running
+To get back to the terminal, you can stop the server by typing control c
 _______________________________________________________________________________________________________________________________________
 Set up for production: 
 
