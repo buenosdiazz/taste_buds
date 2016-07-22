@@ -10,7 +10,7 @@ bundle install
 Type this in the terminal: rails s
 Point your web browser to http://localhost:3000 , the web app will be running
 To get back to the terminal, you can stop the server by typing control c
-_______________________________________________________________________________________________________________________________________
+___________________________________________________________________
 Set up for production: 
 
 1) Create a Heroku application
@@ -49,3 +49,8 @@ heroku run rake db:migrate
 Type this in the terminal:
 heroku open
 This opens the new application in your browser.
+
+
+
+
+
