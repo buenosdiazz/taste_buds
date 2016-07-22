@@ -17,10 +17,10 @@ To get back to the terminal, you can stop the server by typing control c
 ### 1) Create a Heroku application
 
 type in terminal: 
-heroku create
+*`heroku create`
 this registers a new application on Heroku's system. 
 
-###2) git status to make sure everything is updated 
+###2) *`git status` to make sure everything is updated 
 ###3) commit the changes (if any)  
 Type this in the terminal:
 *`git add .`
