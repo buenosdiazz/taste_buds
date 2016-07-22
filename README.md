@@ -1,5 +1,4 @@
 # taste_buds
-
 taste_buds-
 Set up locally: 
 Clone the application from github
