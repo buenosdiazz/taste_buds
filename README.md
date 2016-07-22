@@ -21,17 +21,25 @@ type in terminal:
 this registers a new application on Heroku's system. 
 
 ###2) `git status` to make sure everything is updated 
+
 ###3) commit the changes (if any)  
+
 Type this in the terminal:
 * `git add .`
 * `git commit -m "useful information for future you "`
+* 
 ###4) Push changes to Heroku
+
 Type this in the terminal:
 * `git push heroku master`
+* 
 ###5) Run database migrations on Heroku
 Type this in the terminal:
+
 * `heroku run rake db:migrate`
+* 
 ###6) Visit your application
+
 Type this in the terminal:
 * `heroku open`
 This opens the new application in your browser.
