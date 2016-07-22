@@ -12,14 +12,15 @@ Set up locally:
 To get back to the terminal, you can stop the server by typing control c
 
 
-Set up for production: 
+## Set up for production: 
 
-1) Create a Heroku application
+### 1) Create a Heroku application
 
 type in terminal: 
 heroku create
 this registers a new application on Heroku's system. 
-2) edit gem file 
+
+### 2) edit gem file 
 Open the file called Gemfile in Sublime Text, or your preferred editor, and find the line containing:
 gem 'sqlite3'
 Remove that line and replace it with:
