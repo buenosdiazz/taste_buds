@@ -20,40 +20,20 @@ type in terminal:
 heroku create
 this registers a new application on Heroku's system. 
 
-### 2) edit gem file 
-Open the file called Gemfile in Sublime Text, or your preferred editor, and find the line containing:
-gem 'sqlite3'
-Remove that line and replace it with:
-
-```ruby
-group :development, :test do
-  gem 'sqlite3'
-end
-
-group :production do
-  gem 'pg'
-  gem 'rails_12factor'
-end
-```
-
-Apply the Gemfile changes 
-Type  into the  console 
- bundle install --without production
-3) apply gemfile changes --> run bundle install for the changes to be processed. 
-4) commit the changes 
+###2) git status to make sure everything is updated 
+###3) commit the changes (if any)  
 Type this in the terminal:
-git add .
-git commit -m "Changed Gemfile for Heroku"
-5) git status to make sure everything is updated 
-6) Push changes to Heroku
+*`git add .`
+*`git commit -m "useful information for future you "`
+###4) Push changes to Heroku
 Type this in the terminal:
-git push heroku master
-7) Run database migrations on Heroku
+*`git push heroku master`
+###5) Run database migrations on Heroku
 Type this in the terminal:
-heroku run rake db:migrate
-8) Visit your application
+*`heroku run rake db:migrate`
+###6) Visit your application
 Type this in the terminal:
-heroku open
+*`heroku open`
 This opens the new application in your browser.
 
 
