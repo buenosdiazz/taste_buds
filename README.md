@@ -5,7 +5,7 @@ Set up locally:
   * git clone https://github.com/buenosdiazz/taste_buds.git
 - Make sure that you're in the taste_buds folder. You can type pwd (print working directory) in the terminal to see what folder you are in 
 - Install all required gems
-  * bundle install
+  * `bundle install`
 - Type this in the terminal: rails s
 - Point your web browser to http://localhost:3000, the web app will be running
 
@@ -24,6 +24,8 @@ this registers a new application on Heroku's system.
 Open the file called Gemfile in Sublime Text, or your preferred editor, and find the line containing:
 gem 'sqlite3'
 Remove that line and replace it with:
+
+```ruby
 group :development, :test do
   gem 'sqlite3'
 end
@@ -32,6 +34,8 @@ group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
+```
+
 Apply the Gemfile changes 
 Type  into the  console 
  bundle install --without production
