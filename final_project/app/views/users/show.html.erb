@@ -1,4 +1,6 @@
-<header> <%= link_to 'logout', destroy_user_session_path, method: 'DELETE'%> </header>
+
+
+
 <% if user_signed_in? %>
 <h2> Welcome <%= current_user.name %>! </h2>
 
