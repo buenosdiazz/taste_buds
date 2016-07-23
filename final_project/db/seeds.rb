@@ -5,3 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+list1= List.create(title:'netflix originals')
+caro = User.create(name:'Caro', email:'caro@caro.com', password:'password', password_confirmation:'password')
