@@ -12,7 +12,7 @@
 To get back to the terminal, you can stop the server by typing control c
 
 
-## Set up for production: 
+## Set up for production: can be found at https://immense-dawn-17141.herokuapp.com/
 
 ### 1) Create a Heroku application
 
