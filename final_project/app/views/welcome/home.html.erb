@@ -1,12 +1,10 @@
 
 <div class="jumbotron">
   <% if user_signed_in? %>
-    <h1>Welcome back, trusted user!</h1>
+    <h1>Welcome back, <%= current_user.name %>!</h1>
     <p class="lead">
-      You have signed in!  If this were a real app some sweet conent
-      would go here.  But it's just a test.  You might want to sign out now.
+      Your Tastebud Feed
     </p>
-    <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => 'btn btn-large btn-danger' %>
   <% else %>
     <h1>Welcome, new user!</h1>
     <p class="lead">
@@ -14,10 +12,8 @@
       top secret content.
     </p>
     <div class="row-fluid">
-      <div class="span6">
-        <%= link_to "Sign In", new_user_session_path, :class => "btn btn-success" %>
-      </div>
-      <div class="span6">
+      <div class="span12">
+        <%= link_to "Sign In", new_user_session_path, :class => "btn btn-success" %> <br> <br>
         <%= link_to "Sign Up", new_user_registration_path, :class => "btn btn-success" %>
       </div>
     </div>

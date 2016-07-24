@@ -12,8 +12,18 @@
  *
  *= require_tree .
  *= require_self
- *= require devise_bootstrap_views
  */
- @import "bootstrap-sprockets"
-@import "bootstrap"
+$navbar-default-bg: #ECF0F1;
+$jumbotron-padding: 17px;
 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+body{
+  background-color: #36C4D0;
+}
+
+.center {
+  text-align: center;
+}

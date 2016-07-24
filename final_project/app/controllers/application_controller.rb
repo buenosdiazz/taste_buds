@@ -6,6 +6,6 @@ protected
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end 
    def after_sign_in_path_for(resource)
-    "/users/#{current_user.id}" # Or :prefix_to_your_route
+    "/" # Or :prefix_to_your_route
   end
 end
