@@ -1,0 +1,18 @@
+<h1>Lists</h1>
+
+  <body>
+    <% @tables.each do |table| %>
+      <br>
+       <%= link_to table.title, table_path(table)%> <br>
+        <br>
+        <%= link_to 'Edit', edit_table_path(table) %>
+        <br>
+        <%= link_to 'Destroy', table, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <br>
+    <% end %>
+  </body>
+
+
+<br>
+
+<%= link_to 'New List', new_table_path %>

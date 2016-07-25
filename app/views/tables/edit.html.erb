@@ -1,0 +1,9 @@
+<h1> Edit <%= @table.title %> Details </h1>
+<form role = "form">
+<%= form_for @table do |f| %> 
+<%= f.label :title %>
+<%= f.text_field :title %> 
+<br>
+<%= f.button "Save", class: 'btn btn-default btn-success' %> 
+<% end %> 
+</form>
