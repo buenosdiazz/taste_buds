@@ -1,9 +1,22 @@
-<h1> Edit <%= @table.title %> Details </h1>
-<form role = "form">
-<%= form_for @table do |f| %> 
-<%= f.label :title %>
-<%= f.text_field :title %> 
-<br>
-<%= f.button "Save", class: 'btn btn-default btn-success' %> 
-<% end %> 
-</form>
+<div class="panel panel-default">
+  <div class="panel-heading">
+  Edit List
+  </div>
+  <div class="panel-body">
+  <%= form_for(@table) do |f| %>
+
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update", class: "btn btn-primary"%>
+  </div>
+</div>
+  <% end %>
+   <div class="panel-footer">
+    <%= link_to 'List Details', @table %> |
+    <%= link_to 'Back', tables_path %>
+  </div>
+</div>

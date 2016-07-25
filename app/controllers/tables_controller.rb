@@ -14,34 +14,34 @@ class TablesController < ApplicationController
   end
 
   def edit
-     @table = Table.find_by(id:params[:id])
-    render "edit"
+    @table = Table.find_by(id:params[:id])
+    render 'edit'
   end
 
   def create
-    @table = Table.new(table_params)
-    @table.save
-
-    redirect_to "/tables/#{@table.id}"
-   
+   @table = Table.new(table_params)
+      if @table.save
+      redirect_to "/tables/#{@table.id}"
+      else
+      render :new 
+      end
   end
+  
 
   def update
-   @table = Table.find_by(id:params[:id])
-    
-  if @table.update(table_params)
-
-    redirect_to action: "index", controller: "tables",
-    id: @table.id
-  else 
-    render "edit"
-  end 
+  @table = Table.find_by(id:params[:id])
+      if @table.update(table_params)
+        redirect_to @table
+      else
+        render :edit
+      end
   end
+  
 
   def destroy
   @table = Table.find_by(id:params[:id])
   @table.destroy
-  redirect_to"/table"
+    redirect_to"/tables"
   end
 
   private
