@@ -1,4 +1,6 @@
 class TablesController < ApplicationController
+before_action :authenticate_user!, except: [:index, :show] 
+before_action :correct_user, only: [:edit, :update, :destroy]
    def index
     @tables = Table.all
   end
@@ -9,7 +11,7 @@ class TablesController < ApplicationController
   end
 
   def new
-    @table = Table.new
+    @table = current_user.tables.new
     render "new"
   end
 
@@ -19,7 +21,7 @@ class TablesController < ApplicationController
   end
 
   def create
-   @table = Table.new(table_params)
+   @table = current_user.tables.new(table_params)
       if @table.save
       redirect_to "/tables/#{@table.id}"
       else
@@ -31,7 +33,7 @@ class TablesController < ApplicationController
   def update
   @table = Table.find_by(id:params[:id])
       if @table.update(table_params)
-        redirect_to @table
+        redirect_to url_for({ :controller => 'users', :action => 'show', :id => current_user.id })
       else
         render :edit
       end
@@ -41,7 +43,7 @@ class TablesController < ApplicationController
   def destroy
   @table = Table.find_by(id:params[:id])
   @table.destroy
-    redirect_to"/tables"
+    redirect_to"/tables", notice: "List Deleted" 
   end
 
   private
@@ -51,3 +53,8 @@ class TablesController < ApplicationController
       params.require(:table).permit(:title)
     end
 end
+
+def correct_user 
+  @table= current_user.tables.find_by(id:params[:id])
+  redirect_to tables_path, notice: "Not authorized to edit list" if @table.nil? 
+end 

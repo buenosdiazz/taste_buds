@@ -8,6 +8,23 @@
 <%= link_to 'Edit Profile', edit_user_registration_path %>
 </div>
 
+<h1>Your Lists</h1>
 
+  <body>
+    <% @lists.each do |list| %>
+      <br>
+       <%= link_to list.title, table_path(list)%> 
+        <br>
+        <%= link_to 'Edit', edit_table_path(list) %>
+        <br>
+        <%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <br>
+    <% end %>
+  </body>
+
+
+<br>
+
+<%= link_to 'New List', new_table_path %>
 
 

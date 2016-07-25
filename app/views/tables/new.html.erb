@@ -17,6 +17,6 @@
     <% end %>
   </div>
   <div class="panel-footer">
-  <%= link_to 'Back', tables_path %>
+  <%= link_to "Back to Profile", url_for({ :controller => 'users', :action => 'show', :id => current_user.id }) %>
   </div>
 </div>
