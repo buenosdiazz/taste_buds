@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-caro = User.create(name:'Caro', email:'caro@caro.com', password:'password', password_confirmation:'password')
-netflix_table = Table.create(title: "favorite Netflix Originals")
+caro = User.create!(name:'Caro', email:'caro@caro.com', password:'password', password_confirmation:'password')
+netflix_table = Table.create!(title: "favorite Netflix Originals")
 # caro.tables.push(netflix_table)
-music_table= Table.create(title: 'Favorite Songs Right now')
+music_table= Table.create!(title: 'Favorite Songs Right now')
