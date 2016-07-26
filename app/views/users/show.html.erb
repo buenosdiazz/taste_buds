@@ -1,29 +1,34 @@
 <!-- profile page -->
+
 <div class="jumbotron center">
 <% if user_signed_in? %>
-<h2> <%= current_user.name %> </h2>
+<h2> <%= current_user.name %>'s Lists </h2>
+<%= image_tag current_user.avatar.url, class: "round-image-50"%>
 <% else %> 
 <h2> Hello TasteBud </h2>
 <% end %> 
-<%= link_to 'Edit Profile', edit_user_registration_path %>
 </div>
 
-
-<h1>Your Lists</h1>
-<%= link_to 'Create New List', new_table_path %>
-  <body>
-    <% @lists.each do |list| %>
-      <br>
-       <%= link_to list.title, table_path(list)%> 
-        <br>
-        <%= link_to 'Edit', edit_table_path(list) %>
-        <br>
-        <%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <br>
-    <% end %>
-  </body>
-
 <br>
+
+<div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
+ 
+  <div class="box col2 lists">
+ <h4> <%= link_to 'Create New List',new_table_path %> </h4>
+  </div>
+
+    <% @lists.each do |list| %>
+      <div class="box col2 lists">
+         <h4> <%= link_to list.title, table_path(list)%> </h4> 
+         <a href="http://www.flickr.com/photos/nemoorange/3319714470/" title="Whitlow's on Wilson by nemoorange, on Flickr"><img src="http://farm4.static.flickr.com/3008/3319714470_c05a5cb5a8_m.jpg" alt="Whitlow's on Wilson" /></a>
+        <%= link_to 'Edit', edit_table_path(list) %>
+        |
+        <%= link_to 'Delete', list, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <br>
+    </div>
+ <% end %> 
+
+</div>
 
 
 

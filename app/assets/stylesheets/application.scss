@@ -10,15 +10,27 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
-
- *= require_tree .
- *= require_self
  */
 
 
 $navbar-default-bg: #ECF0F1;
+$jumbotron-bg: #ECF0F1;
 $jumbotron-padding: 17px;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "masonry/basic";
+@import "masonry/centered";
+@import "masonry/fluid";
+@import "masonry/gutters";
+@import "masonry/infinitescroll";
+@import "masonry/right-to-left";
+@import "masonry/transitions";
+@import "**/*";
+
+
+
+.center {
+  text-align: center;
+}
 

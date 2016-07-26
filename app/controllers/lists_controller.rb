@@ -1,7 +1,8 @@
-class TablesController < ApplicationController
-before_action :authenticate_user!, except: [:index, :show] 
-before_action :correct_user, only: [:edit, :update, :destroy]
-   def index
+class ListsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show] 
+  before_action :correct_user, only: [:edit, :update, :destroy]
+  
+  def index
     @tables = Table.all
   end
 
@@ -43,7 +44,7 @@ before_action :correct_user, only: [:edit, :update, :destroy]
   def destroy
   @table = Table.find_by(id:params[:id])
   @table.destroy
-    redirect_to"/tables", notice: "List Deleted" 
+  redirect_to url_for({ :controller => 'users', :action => 'show', :id => current_user.id })
   end
 
   private
@@ -52,9 +53,9 @@ before_action :correct_user, only: [:edit, :update, :destroy]
     def table_params
       params.require(:table).permit(:title)
     end
-end
 
-def correct_user 
-  @table= current_user.tables.find_by(id:params[:id])
-  redirect_to tables_path, notice: "Not authorized to edit list" if @table.nil? 
-end 
+    def correct_user 
+      @table= current_user.tables.find_by(id:params[:id])
+      redirect_to tables_path, notice: "Not authorized to edit list" if @table.nil? 
+    end 
+end
