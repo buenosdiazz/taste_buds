@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations" }
   
-  resources :tables, controller: "lists"
+  resources :lists
 
   get '/', to: 'welcome#home'
 

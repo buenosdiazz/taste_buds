@@ -1,7 +1,7 @@
 <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
 <div class="list-group">
   <a href="#" class="list-group-item active">
-    <%= @table.title %>
+    <%= @list.title %>
   </a>
   <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
   <a href="#" class="list-group-item">Morbi leo risus</a>
@@ -9,9 +9,9 @@
   <a href="#" class="list-group-item">Vestibulum at eros</a>
 </div>
 
-<%= link_to 'Edit List', edit_table_path(@table) %> |
+<%= link_to 'Edit List', edit_list_path(@list) %> |
 
-<%= link_to 'Delete List', @table, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Delete List', @list, method: :delete, data: { confirm: 'Are you sure?' } %>
 <br>
  <%= link_to "Back to Profile", url_for({ :controller => 'users', :action => 'show', :id => current_user.id }) %>
 <div id="lists">

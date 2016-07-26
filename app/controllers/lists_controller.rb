@@ -3,28 +3,28 @@ class ListsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
   
   def index
-    @tables = Table.all
+    @lists = List.all
   end
 
   def show
-    @table = Table.find_by(id:params[:id])
+    @list = List.find_by(id:params[:id])
     render "show"
   end
 
   def new
-    @table = current_user.tables.new
+    @list = current_user.lists.new
     render "new"
   end
 
   def edit
-    @table = Table.find_by(id:params[:id])
+    @list = List.find_by(id:params[:id])
     render 'edit'
   end
 
   def create
-   @table = current_user.tables.new(table_params)
-      if @table.save
-      redirect_to "/tables/#{@table.id}"
+   @list = current_user.lists.new(list_params)
+      if @list.save
+      redirect_to "/lists/#{@list.id}"
       else
       render :new 
       end
@@ -32,8 +32,8 @@ class ListsController < ApplicationController
   
 
   def update
-  @table = Table.find_by(id:params[:id])
-      if @table.update(table_params)
+  @list = List.find_by(id:params[:id])
+      if @list.update(list_params)
         redirect_to url_for({ :controller => 'users', :action => 'show', :id => current_user.id })
       else
         render :edit
@@ -42,20 +42,20 @@ class ListsController < ApplicationController
   
 
   def destroy
-  @table = Table.find_by(id:params[:id])
-  @table.destroy
+  @list = List.find_by(id:params[:id])
+  @list.destroy
   redirect_to url_for({ :controller => 'users', :action => 'show', :id => current_user.id })
   end
 
   private
 
-    # Never trust parameters from the scary internet, only allow the white table through.
-    def table_params
-      params.require(:table).permit(:title)
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def list_params
+      params.require(:list).permit(:title)
     end
 
     def correct_user 
-      @table= current_user.tables.find_by(id:params[:id])
-      redirect_to tables_path, notice: "Not authorized to edit list" if @table.nil? 
+      @list= current_user.lists.find_by(id:params[:id])
+      redirect_to lists_path, notice: "Not authorized to edit list" if @list.nil? 
     end 
 end

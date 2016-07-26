@@ -3,7 +3,7 @@
   Edit List
   </div>
   <div class="panel-body">
-  <%= form_for(@table) do |f| %>
+  <%= form_for(@list) do |f| %>
 
   <div class="form-group">
     <%= f.label :title %>
@@ -16,7 +16,7 @@
 </div>
   <% end %>
    <div class="panel-footer">
-    <%= link_to 'List Details', @table %> |
-    <%= link_to 'Back', tables_path %>
+    <%= link_to 'List Details', @list %> |
+    <%= link_to 'Back', lists_path %>
   </div>
 </div>
