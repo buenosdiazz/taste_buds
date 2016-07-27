@@ -1,0 +1,6 @@
+ <% if current_user.follow?(list) %>
+<%= link_to "Unfollow", unfollow_path(list, "js"), method: :delete,  :remote => true  %> 
+<% else %>
+<%= link_to "follow", follow_path(list, "js"), method: :post,  :remote => true %>
+<% end %>
+

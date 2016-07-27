@@ -2,16 +2,18 @@ class FollowsController < ApplicationController
 respond_to :js
 
   def follow
-    @follower = current_user
+    @user = current_user
     @list = List.find(params[:list_id])
-    @follower.follow!(@list)
+    @user.follow!(@list)
+    render 'follow'
   end
 
   def unfollow
-   @follower = current_user
-   @follow = @follower.follows.find(params[:followed_list_id])
+   @user= current_user
+   @follow = @user.follows.find_by_list_id(params[:list_id])
    @list = List.find(params[:list_id])
    @follow.destroy!
+   render 'unfollow'
   end
 end
 

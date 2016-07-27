@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  resources :follows
   devise_for :users, controllers: { registrations: "registrations" }
   
-  resources :lists
+  resources :lists 
 
   get '/', to: 'welcome#home'
 
@@ -10,7 +9,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/users/:id', to: 'users#show'
 
-  match 'follow', to: 'follows#follow', via: :post
+  match '/follow/:list_id', to: 'follows#follow', via: :post, as: "follow" 
 
-  match 'unfollow', to: 'follows#unfollow', via: :delete
+  match '/unfollow/:list_id', to: 'follows#unfollow', via: :delete, as: 'unfollow'
 end
