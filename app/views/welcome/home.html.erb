@@ -5,6 +5,7 @@
     <p class="lead">
       Tastebud Feed
     </p>
+
   <% else %>
     <h1>Welcome, new user!</h1>
     <p class="lead">
@@ -19,10 +20,13 @@
   <% end %>
 </div>
 
+
+
 <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
+    
 
     <% @lists.each do |list| %>
-
+     
       <div class="box col2 lists">
 
          <%= div_for list do %>
@@ -38,5 +42,9 @@
     </div>
  <% end %> 
 
+
 </div>
+
+
+
 

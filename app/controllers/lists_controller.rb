@@ -7,7 +7,7 @@ class ListsController < ApplicationController
   end
 
   def show
-    @list = current_user.owned_lists.find_by(id:params[:id])
+    @list = List.find_by(id:params[:id])
     @items = @list.items
     render "show"
   end
