@@ -1,13 +1,28 @@
 <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
-<div class="list-group">
+<div class="list-group" id="items">
   <a href="#" class="list-group-item active">
     <%= @list.title %>
   </a>
-  <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-  <a href="#" class="list-group-item">Morbi leo risus</a>
-  <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-  <a href="#" class="list-group-item">Vestibulum at eros</a>
+   <% @items.each do |item| %>
+  <br>
+  <a href="#" class="list-group-item">  <%= item.name %> </a>
+  <% end %>
 </div>
+
+  <div class="col-md-2 col-md-offset-4">
+    <%= link_to new_list_item_path(@list, @item, "js"), remote: true do %>
+      <button class="btn btn-default">Add Item to list</button>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-2" id="item-form" style="display:none;"></div>
+</div>
+
+
+
+
 
 <%= link_to 'Edit List', edit_list_path(@list) %> |
 
