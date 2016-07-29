@@ -12,8 +12,11 @@ protected
   end
 
  def notifications
+ if user_signed_in? 
     @new_follower_notifications = Follow.where(list_id: 'owned_lists')
     @updated_list_notifications = Follow.where(user_id: current_user.id)
+  else 
+  end 
   end 
  
 

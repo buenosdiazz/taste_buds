@@ -1,0 +1,27 @@
+<div class="jumbotron center">
+    <h2><%= @category.name %> </h2> 
+    <p class="lead">
+      Tastebud Feed
+    </p>
+</div>
+
+  <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
+    
+
+    <% @lists.each do |list| %>
+     
+      <div class="box col2 lists">
+
+         <%= div_for list do %>
+         <%= render partial: "follows/button", locals: {list: list}  %> 
+         <% end %>
+
+         <h4> <%= link_to list.title, list_path(list)%> </h4> 
+         <a href="http://www.flickr.com/photos/nemoorange/3319714470/" title="Whitlow's on Wilson by nemoorange, on Flickr"><img src="http://farm4.static.flickr.com/3008/3319714470_c05a5cb5a8_m.jpg" alt="Whitlow's on Wilson" /></a>
+        <%= link_to 'Edit', edit_list_path(list) %>
+        |
+        <%= link_to 'Delete', list, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <br>
+    </div>
+ <% end %> 
+</div>
