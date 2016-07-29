@@ -1,12 +1,13 @@
 <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
-<div class="list-group" id="items">
+<div class="list-group" >
   <a href="#" class="list-group-item active">
     <%= @list.title %>
   </a>
+  <div id="items">
    <% @items.each do |item| %>
-  <br>
   <a href="#" class="list-group-item">  <%= item.name %> </a>
   <% end %>
+  </div>
 </div>
 
   <div class="col-md-2 col-md-offset-4">
@@ -31,5 +32,4 @@
  <%= link_to "Back to Profile", url_for({ :controller => 'users', :action => 'show', :id => current_user.id }) %>
 <div id="lists">
 </div>
-
 

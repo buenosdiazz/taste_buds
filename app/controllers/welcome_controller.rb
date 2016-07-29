@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def home 
-    @lists = List.all 
+    @lists = current_user.followed_lists
     render 'home'
   end 
 

@@ -4,6 +4,7 @@ class ListsController < ApplicationController
   
   def index
     @lists = current_user.owned_lists.all
+    render json: @lists
   end
 
   def show
@@ -14,7 +15,9 @@ class ListsController < ApplicationController
 
   def new
     @list = current_user.owned_lists.new
-    render "new"
+    @items = @list.items
+    @categories = Category.all.map{|c| [ c.name, c.id ] }
+    render 'new'
   end
 
   def edit
@@ -24,6 +27,7 @@ class ListsController < ApplicationController
 
   def create
    @list = current_user.owned_lists.new(list_params)
+   @list.category_id = params[:category_id] 
       if @list.save
       redirect_to "/lists/#{@list.id}"
       else
