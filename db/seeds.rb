@@ -5,9 +5,3 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-caro = User.create!(name:'Caro', email:'caro@caro.com', password:'password', password_confirmation:'password')
-netflix_originals = List.create!(title:'favorite netflix originals')
-item1 = item.create!(name:"stranger things")
-
-netflix_originals.push(item1)
-caro.lists.push(netflix_originals)

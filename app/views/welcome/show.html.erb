@@ -1,11 +1,14 @@
 <div class="jumbotron center">
 <% if user_signed_in? %>
 <h2> Welcome <%= current_user.name %>! </h2>
+<%  @updated_list_notifications.each do |notification| %>
+<%= notification.id %>
 <% else %>
 <h2> Welcome New TasteBud! </h2>
 <%end%> 
 <h4> Let's get you started </h4>
-<h4> Browse the lists below and find your tastebuds</h4>
+<h4> Browse the lists below and find your tastebuds
+</h4>
 </div>
 
 <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
