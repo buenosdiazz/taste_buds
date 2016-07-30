@@ -1,8 +1,6 @@
 <div class="jumbotron center">
 <% if user_signed_in? %>
 <h2> Welcome <%= current_user.name %>! </h2>
-<%  @updated_list_notifications.each do |notification| %>
-<%= notification.id %>
 <% else %>
 <h2> Welcome New TasteBud! </h2>
 <%end%> 

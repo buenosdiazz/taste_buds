@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   match '/follow/:list_id', to: 'follows#follow', via: :post, as: "follow" 
 
   match '/unfollow/:list_id', to: 'follows#unfollow', via: :delete, as: 'unfollow'
+
+  post "/lists/:id/items/add" => 'lists#add'
+
 end

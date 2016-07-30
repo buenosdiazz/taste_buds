@@ -1,27 +1,36 @@
 <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
-<div class="list-group" >
-  <a href="#" class="list-group-item active">
-    <%= @list.title %>
-  </a>
-  <div id="items">
-   <% @items.each do |item| %>
-  <a href="#" class="list-group-item">  <%= item.name %> </a>
-  <% end %>
-  </div>
-</div>
-
-  <div class="col-md-2 col-md-offset-4">
-    <%= link_to new_list_item_path(@list, @item, "js"), remote: true do %>
-      <button class="btn btn-default">Add Item to list</button>
-    <% end %>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-6 col-md-offset-2" id="item-form" style="display:none;"></div>
+  <h4> Step 2 Add Items to your list </h4>
+    <div class="list-group" >
+      
+     <ul>
+      <h3> <%= @list.title %> </h3>
+       <div id="items">
+      <% @items.each do |item| %>
+      
+   <li>  <%= item.name %> </li>
+ 
+    
+<% end %>
+     
+<br>
 </div>
 
 
+<br> 
+
+
+<form class="form-horizontal" id="js-item-form">
+    <div class="form-group">
+          <br>
+          <label for="search" class="col-sm-2 control-label"></label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="newitem" placeholder="movie">
+        </div>
+        <div class="form-group">
+        <button type="submit"  id='js-add-item' class="btn btn-info" data-list= "<%=@list.id%>">Add item to list </button>
+        </div>
+    </div>
+  </form>
 
 
 
@@ -30,6 +39,6 @@
 <%= link_to 'Delete List', @list, method: :delete, data: { confirm: 'Are you sure?' } %>
 <br>
  <%= link_to "Back to Profile", url_for({ :controller => 'users', :action => 'show', :id => current_user.id }) %>
-<div id="lists">
-</div>
+
+
 

@@ -1,7 +1,7 @@
 <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
+<h4> Step 1 Pick A Great List Name and Select a Category </h4>
 <div class="panel panel-default">
-<div class="panel-heading">
-  Add a List
+<div class="panel-heading">  
   </div>
   <div class="panel-body">
   <%= form_for(@list) do |f| %>
@@ -12,11 +12,11 @@
     </div>
     
     <div class="form-group">
-    <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Select one!") %>
+    <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Select a Category") %>
     </div>
 
    <div class="actions">
-    <%= f.submit "Create List", class: "btn btn-primary"%>
+    <%= f.submit "Next", class: "btn btn-primary"%>
     </div>
     <% end %>
   </div>

@@ -1,42 +1,43 @@
 class ItemsController < ApplicationController
-  before_action :all_items, only: [:index, :create]
-  respond_to :html, :js
 
   def index
-  @items = Item.all
-
-  respond_to do |format|
-    format.html
-    format.json
-  end
+  items = Item.all
+  render json: items
   end
 
    def show
-    @item= Item.find_by(id:params[:id])
-    render "show"
+    item= Item.find_by(id:params[:id])
+    render json: item
   end
 
-
-  def new
-    @list= List.find_by(id:params[:list_id])
-    @item = @list.items.new 
-  end
 
   def create
-    @list= List.find_by(id:params[:list_id])
-    @item= @list.items.new(item_params)
-    @item.save
+    list= List.find_by(id:params[:list_id])
+    item= list.items.create(item_params)
+    render json: item
+  end
+
+  def update
+    list= List.find_by(id:params[:list_id])
+    item= @list.items.find_by(id:params[:item_id])
+    item.update(item_params)
+    render json: item
   end
 
 
- private
-    def all_items
-      @items = Item.all
-    end
+  def destroy
+    list= List.find_by(id:params[:list_id])
+    item= @list.items.find_by(id:params[:item_id])
+    item.destroy
+    render json: item
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+ private
+ 
     def item_params
       params.require(:item).permit(:name)
     end
 
 end
+
+

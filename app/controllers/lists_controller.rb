@@ -4,7 +4,6 @@ class ListsController < ApplicationController
   
   def index
     @lists = current_user.owned_lists.all
-    render json: @lists
   end
 
   def show
@@ -51,6 +50,7 @@ class ListsController < ApplicationController
   @list.destroy
   redirect_to url_for({ :controller => 'users', :action => 'show', :id => current_user.id })
   end
+
 
   private
 
