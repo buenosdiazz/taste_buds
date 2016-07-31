@@ -40,6 +40,7 @@ gem 'record_tag_helper', '~> 1.0'
 gem 'omniauth-facebook'
 gem 'remotipart', github: 'mshibuya/remotipart'
 gem 'rails_admin', '>= 1.0.0.rc'
+gem 'gon', '~> 5.2', '>= 5.2.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

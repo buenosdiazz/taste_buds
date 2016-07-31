@@ -9,6 +9,7 @@ class ListsController < ApplicationController
   def show
     @list = List.find_by(id:params[:id])
     @items = @list.items
+    gon.items = @list.items
     render "show"
   end
 
@@ -51,6 +52,10 @@ class ListsController < ApplicationController
   redirect_to url_for({ :controller => 'users', :action => 'show', :id => current_user.id })
   end
 
+  # def add_item
+  #   respond_to do |format|
+  #   format.js { render :js => "my_function();" }
+  # end 
 
   private
 
@@ -59,6 +64,9 @@ class ListsController < ApplicationController
       params.require(:list).permit(:title)
     end
 
+   def item_params
+      params.require(:item).permit(:name)
+    end
     def correct_user 
       @list= current_user.owned_lists.find_by(id:params[:id])
       redirect_to lists_path, notice: "Not authorized to edit list" if @list.nil? 

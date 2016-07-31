@@ -7,9 +7,11 @@
   $('#js-item-form').on('submit', function(event) {
     event.preventDefault()
     var query = $('#newitem').val();
+    gon.items 
     searchMovie(query);
     // console.log(query)
   });
+
 
    function searchMovie(query) {
   $.ajax({
@@ -27,7 +29,9 @@
     $("#items").append("<li>"+Movie+"</li>");
 
     $("#items").append("<img src="+"http://image.tmdb.org/t/p/w154"+MoviePoster+">");
-
+    var string = String(Movie)
+    console.log(gon.items)
+ 
   }
 
   function handleError(err) {
