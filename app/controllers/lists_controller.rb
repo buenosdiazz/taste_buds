@@ -52,10 +52,19 @@ class ListsController < ApplicationController
   end
 
   def additem
-    @list= List.find_by(id:params[:list_id])
-    gon.list = @list.id
-    item= list.items.create(item_params)
-    render json: item
+    p "-------------------------------------------¬"
+    p "-------------------------------------------¬"
+    p "-------------------------------------------¬"
+    p "-------------------------------------------¬"
+    p "-------------------------------------------¬"
+
+
+    p params.inspect 
+
+  @list= List.find_by(id:params[:list_id])
+   name = params[:name]
+   poster = params[:poster]
+   item= @list.items.create(:name => name, :poster => poster)
   end
 
   private
@@ -66,7 +75,7 @@ class ListsController < ApplicationController
     end
 
    def item_params
-      params.require(:item).permit(:name)
+      params.require(:item).permit(:name, :poster)
     end
     def correct_user 
       @list= current_user.owned_lists.find_by(id:params[:id])

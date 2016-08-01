@@ -1,4 +1,5 @@
 
+
 <div class="jumbotron center">
   <% if user_signed_in? %>
     <img src ="/welcomeback.png" width="320" height="50"> 
@@ -9,25 +10,28 @@
 
 <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
     
-
     <% @lists.each do |list| %>
      
       <div class="box col2 lists">
+      
+      <div class = "row">
+      <div class ="col-sm-7"> <h5> <%= link_to list.title, list_path(list)%> </h5> </div>
+      <div class ="col-sm-5">
+      <%= image_tag User.find_by(id:list.user_id).avatar.url , class: "round-image-50"%> </div>
+      </div>
+   
 
-         <%= div_for list do %>
+         <a href="http://www.flickr.com/photos/nemoorange/3319714470/" title="Whitlow's on Wilson by nemoorange, on Flickr"><img src="http://farm4.static.flickr.com/3008/3319714470_c05a5cb5a8_m.jpg" alt="Whitlow's on Wilson" /></a>
+         <br>
+          <%= div_for list do %>
          <%= render partial: "follows/button", locals: {list: list}  %> 
          <% end %>
-
-         <h4> <%= link_to list.title, list_path(list)%> </h4> 
-         <a href="http://www.flickr.com/photos/nemoorange/3319714470/" title="Whitlow's on Wilson by nemoorange, on Flickr"><img src="http://farm4.static.flickr.com/3008/3319714470_c05a5cb5a8_m.jpg" alt="Whitlow's on Wilson" /></a>
-        <%= link_to 'Edit', edit_list_path(list) %>
-        |
-        <%= link_to 'Delete', list, method: :delete, data: { confirm: 'Are you sure?' } %>
         <br>
     </div>
  <% end %> 
 
 </div>
+
 
   <% else %>
     <img src="/welcome.png" width="400" height="170">
@@ -39,15 +43,53 @@ from people you trust. <div class= "dividerr"> </div> Or as we like to call them
     <div class="row-fluid">
       <div class="span6">
       <br>
-     <%= link_to image_tag("signin.png", :width => 110, :height => 50,), new_user_session_path %> 
+     <%= link_to image_tag("/signin.png", :width => 110, :height => 50,), new_user_session_path %> 
        <div class="divider">
        </div>
-    <%= link_to image_tag("signup.png", :width => 110, :height => 50,), new_user_registration_path %>
+    <%= link_to image_tag("/signup.png", :width => 110, :height => 50), new_user_registration_path %>
     <br>
       </div>
     </div>
-  <% end %>
 </div>
+<br> <br><br> <br>
+
+<div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
+<div class="row">
+  <div class="col-sm-3" align="right"><img src="/list.png" width="115" height="165"> </div>
+  <div class="col-sm-9"> <br> <h3> Create curated lists. </h3></div>
+</div>
+<br>
+<br>
+<div class="row">
+  <div class="col-sm-9" align="right"> <br>  <h3> Share what you know and love.  </h3> </div>
+  <div class="col-sm-3" align="left"><img src="/share.png" width="140" height="140">   </div>
+</div>
+<br>
+<br>
+<div class="row">
+ <div class="col-sm-3" align="right"> 
+   <img src="/discover.png" width="140" height="170"></div>
+  <div class="col-sm-9"> <br> <h3> Discover your next thing. </h3></div>
+</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<div class="lists">
+<br>
+<br>
+<div class = "center">
+ <%= link_to image_tag("/getstartedtd.png", :width => 270, :height => 50,), new_user_registration_path %>
+</div>
+<br>
+<br>
+<div>
+  <% end %>
+
+
+
+
 
 
 

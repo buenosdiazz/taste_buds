@@ -1,17 +1,16 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
+<div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
+<div class="border-form-div">
   Edit List
-  </div>
   <div class="panel-body">
   <%= form_for(@list) do |f| %>
 
-  <div class="form-group">
+   <div class="field">
     <%= f.label :title %>
     <%= f.text_field :title %>
-  </div>
+    </div>
  
   <div class="actions">
-    <%= f.submit "Update", class: "btn btn-primary"%>
+    <%= f.submit "Update"%>
   </div>
 </div>
   <% end %>
@@ -19,4 +18,5 @@
     <%= link_to 'List Details', @list %> |
     <%= link_to 'Back', lists_path %>
   </div>
+</div>
 </div>

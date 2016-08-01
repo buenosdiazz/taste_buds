@@ -13,23 +13,27 @@
 <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
  
   <div class="box col2 lists">
- <h4> <%= link_to 'Create New List',new_list_path %> </h4>
+ <h5> <%= link_to 'Create New List',new_list_path %> </h5>
  <p> Create your first list to share! </p>
+ <%= link_to image_tag("/add.png"), new_list_path %>
   </div>
 
     <% @lists.each do |list| %>
      
       <div class="box col2 lists">
 
-         <%= div_for list do %>
+       
+           <div class = "row">
+      <div class ="col-sm-7"> <h5> <%= link_to list.title, list_path(list)%> </h5> </div>
+      <div class ="col-sm-5">
+      <%= image_tag User.find_by(id:list.user_id).avatar.url , class: "round-image-50"%> </div>
+      </div>
+         <a href="http://www.flickr.com/photos/nemoorange/3319714470/" title="Whitlow's on Wilson by nemoorange, on Flickr"><img src="http://farm4.static.flickr.com/3008/3319714470_c05a5cb5a8_m.jpg" alt="Whitlow's on Wilson" /></a>
+     
+        <br>
+          <%= div_for list do %>
          <%= render partial: "follows/button", locals: {list: list}  %> 
          <% end %>
-         <h4> <%= link_to list.title, list_path(list)%> </h4> 
-         <a href="http://www.flickr.com/photos/nemoorange/3319714470/" title="Whitlow's on Wilson by nemoorange, on Flickr"><img src="http://farm4.static.flickr.com/3008/3319714470_c05a5cb5a8_m.jpg" alt="Whitlow's on Wilson" /></a>
-        <%= link_to 'Edit', edit_list_path(list) %>
-        |
-        <%= link_to 'Delete', list, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <br>
     </div>
  <% end %> 
 

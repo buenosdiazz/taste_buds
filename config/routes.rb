@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :items
   end  
 
+
   get '/', to: 'welcome#home'
 
   get '/show', to: 'welcome#show'
@@ -17,6 +18,6 @@ Rails.application.routes.draw do
 
   match '/unfollow/:list_id', to: 'follows#unfollow', via: :delete, as: 'unfollow'
 
-  post "/lists/:id/items/add" => 'lists#add'
+  post "/lists/:list_id/items/add" => 'lists#additem'
 
 end
