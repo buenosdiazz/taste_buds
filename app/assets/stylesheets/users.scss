@@ -5,8 +5,12 @@
   text-align: center;
 }
 
+.dividerr {
+  height:0px;
+}
+
 .lists {
-  background: #ECF0F1;
+  background: #E8F1EE;
   }
   
 #masonry-container {
@@ -20,8 +24,10 @@
           border-radius: 5px;
 }
 
+
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
+
 
 

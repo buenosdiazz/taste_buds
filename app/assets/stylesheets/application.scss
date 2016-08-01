@@ -13,9 +13,13 @@
  */
 
 
-$navbar-default-bg: #ECF0F1;
-$jumbotron-bg: #ECF0F1;
+
+$jumbotron-bg: #E8F1EE;
+$navbar-default-bg: #E8F1EE;
+
+
 $jumbotron-padding: 17px;
+
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -28,9 +32,19 @@ $jumbotron-padding: 17px;
 @import "masonry/transitions";
 @import "**/*";
 
-
+.navbar {
+  min-height: 50px;
+background-color: white;
+}
 
 .center {
   text-align: center;
 }
 
+.jumbotron {
+  margin-top: 80px;
+}
+
+body{
+  font-family: 'Raleway', sans-serif;
+  }

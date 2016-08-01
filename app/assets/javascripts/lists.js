@@ -7,7 +7,7 @@
   $('#js-item-form').on('submit', function(event) {
     event.preventDefault()
     var query = $('#newitem').val();
-    gon.items 
+    gon.list 
     searchMovie(query);
     // console.log(query)
   });
@@ -24,18 +24,20 @@
 
   function showMovie(response) {
     console.log(response);
-    var Movie = response.results[0].original_title;
-    var MoviePoster = response.results[0].poster_path;
-    $("#items").append("<li>"+Movie+"</li>");
 
-    $("#items").append("<img src="+"http://image.tmdb.org/t/p/w154"+MoviePoster+">");
+     var Movie = response.results[0].original_title;
+     var MoviePoster = response.results[0].poster_path;
+    // $("#items").append("<li>"+Movie+"</li>");
+
+    // $("#items").append("<img src="+"http://image.tmdb.org/t/p/w154"+MoviePoster+">");
     var string = String(Movie)
-    console.log(gon.items)
  
-  }
+}
 
   function handleError(err) {
   console.log("Error!", err);
   }
 })
+
+ }
   

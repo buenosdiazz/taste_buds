@@ -8,8 +8,7 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find_by(id:params[:id])
-    @items = @list.items
-    gon.items = @list.items
+    @items = @list.items 
     render "show"
   end
 
@@ -52,10 +51,12 @@ class ListsController < ApplicationController
   redirect_to url_for({ :controller => 'users', :action => 'show', :id => current_user.id })
   end
 
-  # def add_item
-  #   respond_to do |format|
-  #   format.js { render :js => "my_function();" }
-  # end 
+  def additem
+    @list= List.find_by(id:params[:list_id])
+    gon.list = @list.id
+    item= list.items.create(item_params)
+    render json: item
+  end
 
   private
 

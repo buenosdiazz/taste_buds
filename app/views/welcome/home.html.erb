@@ -1,26 +1,11 @@
 
 <div class="jumbotron center">
   <% if user_signed_in? %>
-    <h2>Welcome back, <%= current_user.name %>!</h2>
-    <p class="lead">
-      Tastebud Feed
-    </p>
-
-  <% else %>
-    <h1>Welcome, new user!</h1>
-    <p class="lead">
-      You must sign in or sign up to connect with your TasteBuds.
-    </p>
-    <div class="row-fluid">
-      <div class="span6">
-        <%= link_to "Sign In", new_user_session_path, :class => "btn btn-success" %> 
-        <%= link_to "Sign Up", new_user_registration_path, :class => "btn btn-success" %>
-      </div>
-    </div>
-  <% end %>
+    <img src ="/welcomeback.png" width="320" height="50"> 
+  <h3>
+<!--     <%= current_user.name.capitalize %> -->
+</h3>  
 </div>
-
-
 
 <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
     
@@ -42,8 +27,31 @@
     </div>
  <% end %> 
 
-
 </div>
+
+  <% else %>
+    <img src="/welcome.png" width="400" height="170">
+        <h2> In Buds We Trust </h2>
+      <div class= "dividerr"> </div>
+<h4> Discover lists for the latest things you must see and hear
+from people you trust. <div class= "dividerr"> </div> Or as we like to call them, <strong> TasteBuds </strong> </h4>
+    </p>
+    <div class="row-fluid">
+      <div class="span6">
+      <br>
+     <%= link_to image_tag("signin.png", :width => 110, :height => 50,), new_user_session_path %> 
+       <div class="divider">
+       </div>
+    <%= link_to image_tag("signup.png", :width => 110, :height => 50,), new_user_registration_path %>
+    <br>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+
+
 
 
 

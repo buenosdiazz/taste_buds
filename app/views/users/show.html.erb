@@ -2,14 +2,14 @@
 
 <div class="jumbotron center">
 <% if user_signed_in? %>
-<h2> <%= current_user.name %>'s Lists </h2>
+<img src ="/ownedlist.png" width="200" height="50"> 
+<div class="dividerr"> </div>
 <%= image_tag current_user.avatar.url, class: "round-image-50"%>
 <% else %> 
 <h2> Hello TasteBud </h2>
 <% end %> 
 </div>
 
-<br>
 
 <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
  

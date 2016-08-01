@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :owned_lists, class_name: "List", :source => :list
   has_many :follows, dependent: :destroy 
   has_many :followed_lists, through: :follows , class_name: "List", :source => :list
-  has_attached_file :avatar,:styles => { :medium => "300x300#", :thumb => "100x100#" }, :convert_options => { :all => '-auto-orient' }, :default_url => "/public/backup.jpg"
+  has_attached_file :avatar,:styles => { :medium => "300x300#", :thumb => "100x100#" }, :convert_options => { :all => '-auto-orient' }, :default_url => "/backup.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   def follow!(list)

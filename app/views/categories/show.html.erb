@@ -1,8 +1,13 @@
 <div class="jumbotron center">
-    <h2><%= @category.name %> </h2> 
-    <p class="lead">
-      Tastebud Feed
-    </p>
+ <% if @category.id==1%> 
+   <h2> <img src = "/musicfeed.png" width="200" height="100"> </h2>  
+<%elsif @category.id==2 %> 
+<h2> <img src = "/moviesfeed.png" width="200" height="100"> </h2>
+<%elsif @category.id==3 %> 
+<h2> <img src = "/televisionfeed.png" width="300" height="100"> </h2>
+<% else %> 
+<p> </p>
+<%end %>
 </div>
 
   <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">

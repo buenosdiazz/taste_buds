@@ -1,6 +1,6 @@
 <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
   <h4> Step 2 Add Items to your list </h4>
-    <div class="list-group" >
+    <div class="list-group newlist" >
       
      <ul>
       <h3> <%= @list.title %> </h3>
@@ -18,6 +18,7 @@
 
 <br> 
 
+<%if current_user.id == @list.user_id%>
 
 <form class="form-horizontal" id="js-item-form">
     <div class="form-group">
@@ -31,14 +32,16 @@
         </div>
     </div>
   </form>
-
-
-
-<%= link_to 'Edit List', edit_list_path(@list) %> |
+  <%= link_to 'Edit List', edit_list_path(@list) %> |
 
 <%= link_to 'Delete List', @list, method: :delete, data: { confirm: 'Are you sure?' } %>
 <br>
  <%= link_to "Back to Profile", url_for({ :controller => 'users', :action => 'show', :id => current_user.id }) %>
+<% else %>
+<p>  </p>
+
+
+<%end %>
 
 
 
