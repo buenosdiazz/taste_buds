@@ -4,19 +4,44 @@
 
  $(document).ready(function(){
 
+
+var category_id = $('#js-add-item').data("category")
+
   $('#js-item-form').on('submit', function(event) {
     event.preventDefault()
     var query = $('#newitem').val();
     searchMovie(query);
+
     // console.log(query)
   });
 
-var list_id = $('#js-add-item').data("list");
+
 
    function searchMovie(query) {
+
+
+
+
+if (category_id == 2){
+var the_url =  "https://api.themoviedb.org/3/search/movie?api_key=1ca20fcae4b205492fa563680dd580ed&query="+query
+}
+
+else if (category_id == 3){
+var the_url = "https://api.themoviedb.org/3/search/tv?api_key=1ca20fcae4b205492fa563680dd580ed&query="+query
+}
+
+else if (category_id == 1){
+var the_url = "https://api.spotify.com/v1/search?q="+query+"&type=artist&limit=1"
+}
+
+else {
+  the_url = "/"
+}
+
+
   $.ajax({
     type: "GET",
-    url: "https://api.themoviedb.org/3/search/movie?api_key=1ca20fcae4b205492fa563680dd580ed&query="+query,
+    url: the_url,
     success: showMovie,
     error: handleError,
   });
@@ -25,13 +50,39 @@ var list_id = $('#js-add-item').data("list");
   function showMovie(response) {
     console.log(response);
 
-     var Movie = response.results[0].original_title;
-     var MoviePoster = response.results[0].poster_path;
-      $("#items").append("<li>"+Movie+"</li>");
-      $("#items").append("<img src="+"http://image.tmdb.org/t/p/w154"+MoviePoster+">");
-      var posterlink = "http://image.tmdb.org/t/p/w154"+MoviePoster
+
+if (category_id == 2){
+var Movie = response.results[0].title;
+var MoviePoster = response.results[0].poster_path;
+var posterlink = "http://image.tmdb.org/t/p/w154"+MoviePoster;
+      $("#items").append("<li>"+Movie+"<img src="+"http://image.tmdb.org/t/p/w154"+MoviePoster+">"+"</li>");
+
+}
+
+else if (category_id == 3){
+var Movie = response.results[0].name;
+  var MoviePoster = response.results[0].poster_path;
+var posterlink = "http://image.tmdb.org/t/p/w154"+MoviePoster;
+
+      $("#items").append("<li>"+Movie+"<img src="+"http://image.tmdb.org/t/p/w154"+MoviePoster+">"+"</li>");
+
+}
+
+else if (category_id == 1){
+var Movie= response.artists.items[0].name;
+var posterlink = response.artists.items[0].images[2].url;
+ $("#items").append("<li>"+Movie+"<img src="+posterlink+">"+"</li>");
+}
+
+else {
+var movie= "hello ";
+}
+
+     
+   
       var string = String(Movie);
       
+      var list_id = $('#js-new-item').data("list");
  
       data_to_be_sent = {name: string, poster: posterlink};
       newItem(data_to_be_sent);

@@ -20,14 +20,14 @@
 <%if current_user.id == @list.user_id%>
 
 <form class="form-horizontal" id="js-item-form">
-    <div class="form-group">
+    <div class="form-group" id="js-new-item" data-list= "<%=@list.id%>">
           <br>
           <label for="search" class="col-sm-2 control-label"></label>
         <div class="col-sm-4">
           <input type="text" class="form-control" id="newitem" placeholder="movie">
         </div>
         <div class="form-group">
-        <button type="submit"  id='js-add-item' class="btn btn-info" data-list= "<%=@list.id%>">Add item to list </button>
+        <button type="submit"  id='js-add-item' class="btn btn-info" data-category= "<%=@list.category_id%>" >Add item to list </button>
         </div>
     </div>
   </form>
