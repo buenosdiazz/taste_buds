@@ -1,46 +1,56 @@
-<div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
-  <h4> Step 2 Add Items to your list </h4>
-    <div class="list-group newlist" >
-      
-     <ul>
-      <h3> <%= @list.title %> </h3>
-       <div id="items">
-      <% @items.each do |item| %>
-      
-   <li>  <%= item.name %> <img src = <%= item.poster %> > </li>
 
- 
-    
-<% end %>
-</div>
-
-
-<br> 
-
-<%if current_user.id == @list.user_id%>
-
-<form class="form-horizontal" id="js-item-form">
-    <div class="form-group" id="js-new-item" data-list= "<%=@list.id%>">
-          <br>
-          <label for="search" class="col-sm-2 control-label"></label>
-        <div class="col-sm-4">
-          <input type="text" class="form-control" id="newitem" placeholder="movie">
-        </div>
-        <div class="form-group">
-        <button type="submit"  id='js-add-item' class="btn btn-info" data-category= "<%=@list.category_id%>" >Add item to list </button>
-        </div>
+<div class="jumbotron center">
+    <h4> <%= @list.title %>  </h4>
     </div>
-  </form>
+
+
+  <div id="itemss">
+          <% @items.each do |item| %>
+            <div class="box col4 lists">  
+            <div class = "row" align= "center" >
+
+                <h5 > <strong> <%= @items.find_index(item) + 1 %>.
+                <%= item.name %> </strong></h5> 
+                </div>
+                <div class = "dividerr" > </div>
+              <div class = "row">
+                <div class ="col-sm-5" align="center" >
+                 <div class = "dividerr" > </div>
+                <div id="items"> <img src = <%= item.poster %>   style= "width: 80%; height: 80%" > <br> </div>
+                   </div> 
+                 <div class ="col-sm-7" align= "left">  <h6> <strong> Description: </strong> When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces, and one strange little girl.</h6></div>
+                 
+              </div>
+
+            </div>
+          <% end %>
+ </div>
+
+
+    <%if current_user.id == @list.user_id%>
+      
+       <div class="box col4 lists"> 
+        <h4> Add Items to your list </h4>
+          <form id="js-item-form">
+             <div class="form-group" id="js-new-item" data-list= "<%=@list.id%>">
+               <br>
+               <label for="search" ></label>
+       
+               <input type="text" id="newitem" placeholder="New Item" width="30">
+      
+                <button type="submit"  id='js-add-item' data-category= "<%=@list.category_id%>" > Add item to list </button>
+              </div>
+          </form>
   <%= link_to 'Edit List', edit_list_path(@list) %> |
 
 <%= link_to 'Delete List', @list, method: :delete, data: { confirm: 'Are you sure?' } %>
 <br>
  <%= link_to "Back to Profile", url_for({ :controller => 'users', :action => 'show', :id => current_user.id }) %>
 <% else %>
-<p>  </p>
-
+</div>
 
 <%end %>
+
 
 
 
