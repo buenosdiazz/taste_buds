@@ -55,21 +55,23 @@ if (category_id == 2){
 var Movie = response.results[0].title;
 var MoviePoster = response.results[0].poster_path;
 var posterlink = "http://image.tmdb.org/t/p/w154"+MoviePoster;
-      $("#itemss").append( `<div class="box col4 lists">  
+      $("#itemss").append( 
+        `<div class="box col4 lists">  
             <div class = "row" align= "center" >
-                <h5 > <strong>`+Movie+
-                 `</strong></h5> 
+                <h5 > <strong>${Movie}
+                 </strong></h5> 
             </div>
                 <div class = "dividerr" > </div>
                 <div class = "row">
                     <div class ="col-sm-5" align="center" >
-                     <div class = "dividerr" > </div>
-                     <img src =`+posterlink+`style= "width: 80%; height: 80%" > <br> 
+                        <div class = "dividerr" > </div>
+                        <img src =${posterlink}style= "width: 80%; height: 80%" > <br> 
                      </div>
+
                    <div class ="col-sm-7" align= "left">  <h6> <strong> Description: </strong> When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces, and one strange little girl.</h6>
                    </div>
-                  </div>
-                </div>`)
+                </div>
+        </div>`)
 }
 
 else if (category_id == 3){
