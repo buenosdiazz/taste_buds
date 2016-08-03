@@ -2,7 +2,7 @@
 // All this logic will automatically be available in application.js.
 
 
-$(document).ready(function() {
+$(document).on("turbolinks:load",function() {
 
 
     var category_id = $('#js-add-item').data("category")
@@ -59,6 +59,11 @@ $(document).ready(function() {
 
                    <div class ="col-sm-7" align= "left">  <h6> <strong> Description: </strong> ${description}</h6>
                    </div>
+                   <div class= "row" align= "center" >
+                       <button type="button" class="btn btn-default btn-xs deleteicon" data-itemid= "0" >
+                       <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                       </button>
+                   </div>
                 </div>
         </div>`)
         } else if (category_id == 3) {
@@ -80,6 +85,11 @@ $(document).ready(function() {
                      </div>
 
                    <div class ="col-sm-7" align= "left">  <h6> <strong> Description: </strong> ${description}</h6>
+                   </div>
+                   <div class= "row" align= "center" >
+                       <button type="button" class="btn btn-default btn-xs deleteicon" data-itemid= "0" >
+                       <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                       </button>
                    </div>
                 </div>
         </div>`)
