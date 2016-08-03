@@ -20,4 +20,6 @@ Rails.application.routes.draw do
 
   post "/lists/:list_id/items/add" => 'lists#additem'
 
+  delete "/lists/:list_id/items/:item_id/deleteitem" => 'lists#destroyitem'
+
 end

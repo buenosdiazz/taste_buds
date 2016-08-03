@@ -1,22 +1,20 @@
 <!-- profile page -->
-
 <div class="jumbotron center">
-<% if user_signed_in? %>
-<img src ="/ownedlist.png" width="200" height="50"> 
-<div class="dividerr"> </div>
-<%= image_tag current_user.avatar.url, class: "round-image-50"%>
-<% else %> 
-<h2> Hello TasteBud </h2>
-<% end %> 
-</div>
+  <img src ="/ownedlist.png" width="200" height="50"> 
+  <h3> <%= @user.name.capitalize %></h3>
+  <div class="dividerr"> </div>
+  <%= image_tag @user.avatar.url, class: "round-image-50"%>
+  </div>
 
-
-<div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
- 
+  <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
+  <% if current_user.id == @user.id %>
   <div class="box col2 lists">
  <h5> <%= link_to 'Create New List',new_list_path %> </h5>
  <%= link_to image_tag("/add.png"), new_list_path %>
   </div>
+ <% else %> 
+ <%end %> 
+ 
 
     <% @lists.each do |list| %>
       <div class="box col2 lists">
@@ -28,10 +26,8 @@
         |
         <%= link_to 'Delete', list, method: :delete, data: { confirm: 'Are you sure?' } %>
         <br>
-    </div>
- <% end %> 
-
-</div>
-
+      </div>
+    <% end %> 
+  </div>
 
 

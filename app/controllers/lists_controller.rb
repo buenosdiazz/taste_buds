@@ -64,8 +64,21 @@ class ListsController < ApplicationController
   @list= List.find_by(id:params[:list_id])
    name = params[:name]
    poster = params[:poster]
-   item= @list.items.create(:name => name, :poster => poster)
+   description = params[:description]
+   item= @list.items.create(:name => name, :poster => poster, :description=> description)
+
+   respond_to do |f|
+    f.json { render json: {id: item.id}}
+   end
+
   end
+
+def destroyitem
+   @list= List.find_by(id:params[:list_id])
+   id = params[:id]
+   @item = Item.find_by(id:id)
+   @item.destroy
+  end 
 
   private
 
@@ -75,7 +88,7 @@ class ListsController < ApplicationController
     end
 
    def item_params
-      params.require(:item).permit(:name, :poster)
+       params.require(:item).permit(:name, :poster, :description)
     end
     def correct_user 
       @list= current_user.owned_lists.find_by(id:params[:id])

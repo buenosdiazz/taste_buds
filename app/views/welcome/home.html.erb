@@ -17,7 +17,7 @@
       <div class = "row">
       <div class ="col-sm-7"> <h5> <%= link_to list.title, list_path(list)%> </h5> </div>
       <div class ="col-sm-5">
-      <%= image_tag User.find_by(id:list.user_id).avatar.url , class: "round-image-50"%> </div>
+      <%= link_to image_tag(User.find_by(id:list.user_id).avatar.url , class: "round-image-50"), controller: "users", action: "show", id:User.find_by(id:list.user_id).id %> </div>
       </div>
          <img src =<%=list.items.first.poster %>>
          <br>

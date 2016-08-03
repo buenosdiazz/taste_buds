@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
     render json: item
   end
 
+  
 
 
  private

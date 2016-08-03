@@ -1,27 +1,44 @@
 
 <div class="jumbotron center">
-    <h4> <%= @list.title %>  </h4>
+    <h2 class="listtitle"> <em> <strong> <%= @list.title %> </strong> </em>  </h2>
+    
+  <h3> By <%=link_to User.find_by(id:@list.user_id).name.capitalize, controller: "users", action: "show", id:User.find_by(id:@list.user_id).id %> </h3>
+
+
+    <%if current_user.id == @list.user_id%>
+   <%= link_to 'Edit Title', edit_list_path(@list) %> |
+<%= link_to 'Delete List', @list, method: :delete, data: { confirm: 'Are you sure?' } %>
+   <% else %> 
+   <% end %> 
     </div>
 
 
   <div id="itemss">
           <% @items.each do |item| %>
+
             <div class="box col4 lists">  
             <div class = "row" align= "center" >
 
-                <h5 > <strong> <%= @items.find_index(item) + 1 %>.
+                <h5 > <strong> 
                 <%= item.name %> </strong></h5> 
                 </div>
                 <div class = "dividerr" > </div>
               <div class = "row">
                 <div class ="col-sm-5" align="center" >
                  <div class = "dividerr" > </div>
-                <div id="items"> <img src = <%= item.poster %>   style= "width: 80%; height: 80%" > <br> </div>
+                <div id="items"> <img src = <%= item.poster %>   style= "width: 80%; height: 80%" >  </div>
                    </div> 
-                 <div class ="col-sm-7" align= "left">  <h6> <strong> Description: </strong> When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces, and one strange little girl.</h6></div>
-                 
-              </div>
+                 <div class ="col-sm-7" align= "left">  <h6> <strong> Description: </strong> <%=item.description %> </h6>  </div> 
+            </div>  
 
+             <%if current_user.id == @list.user_id%>
+          <div class= "row" align= "center" >
+              <button type="button" class="btn btn-default btn-xs deleteicon" data-itemid= "<%=item.id%>" >
+              <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+              </button>
+          </div>
+              <% else %> 
+              <% end %> 
             </div>
           <% end %>
  </div>
@@ -30,22 +47,20 @@
     <%if current_user.id == @list.user_id%>
       
        <div class="box col4 lists"> 
-        <h4> Add Items to your list </h4>
+        <h4> <em> <strong> Add Items to your list </strong> </em></h4>
           <form id="js-item-form">
              <div class="form-group" id="js-new-item" data-list= "<%=@list.id%>">
                <br>
                <label for="search" ></label>
        
                <input type="text" id="newitem" placeholder="New Item" width="30">
-      
+        
                 <button type="submit"  id='js-add-item' data-category= "<%=@list.category_id%>" > Add item to list </button>
               </div>
           </form>
-  <%= link_to 'Edit List', edit_list_path(@list) %> |
 
-<%= link_to 'Delete List', @list, method: :delete, data: { confirm: 'Are you sure?' } %>
+
 <br>
- <%= link_to "Back to Profile", url_for({ :controller => 'users', :action => 'show', :id => current_user.id }) %>
 <% else %>
 </div>
 
