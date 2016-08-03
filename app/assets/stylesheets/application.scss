@@ -31,6 +31,9 @@ $jumbotron-padding: 17px;
 @import "masonry/right-to-left";
 @import "masonry/transitions";
 @import "**/*";
+#homepage{
+ background-image: "/background.jpg";
+}
 
 .navbar {
   min-height: 50px;
