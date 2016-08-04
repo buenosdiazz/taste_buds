@@ -25,6 +25,7 @@
           <img src =<%=list.items.first.poster %>>
          
          <br>
+       
         <%= div_for list do %>
          <%= render partial: "follows/button", locals: {list: list}  %> 
          <% end %>
