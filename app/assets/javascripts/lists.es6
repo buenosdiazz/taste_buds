@@ -99,6 +99,7 @@ $(document).on("turbolinks:load",function() {
         } else if (category_id == 1) {
             var Movie = response.artists.items[0].name;
             var posterlink = response.artists.items[0].images[2].url;
+            var description = "Kanye West is a Grammy-winning rapper and sought-after producer who is as well known for his outrageous statements as he is for his broad musical palette."
               $("#itemss").append(
                 `<div class="box col4 lists">  
             <div class = "row" align= "center" >
@@ -109,10 +110,10 @@ $(document).on("turbolinks:load",function() {
                 <div class = "row">
                     <div class ="col-sm-5" align="center" >
                         <div class = "dividerr" > </div>
-                        <img src =${posterlink} style= "width: 80%; height: 80%" > <br> 
+                        <img src =${posterlink} > <br> 
                      </div>
 
-                   <div class ="col-sm-7" align= "left">  <h6> <strong> Description: </strong> Music Artist</h6>
+                   <div class ="col-sm-7" align= "left">  <h6> <strong> Description: </strong> ${description}</h6>
                    </div>
                 </div>
                    <div class= "row" align= "center" >
