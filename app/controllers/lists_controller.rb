@@ -21,6 +21,7 @@ class ListsController < ApplicationController
 
   def edit
     @list = current_user.owned_lists.find_by(id:params[:id])
+    @categories = Category.all.map{|c| [ c.name, c.id ] }
     render 'edit'
   end
 
