@@ -22,11 +22,8 @@
       <div class ="col-sm-5">
        <%= link_to image_tag(User.find_by(id:list.user_id).avatar.url , class: "round-image-50"), controller: "users", action: "show", id:User.find_by(id:list.user_id).id %>  </div>
       </div>
-    
           <img src =<%=list.items.first.poster %>>
-       
-          <%= No photo to display %> 
-        
+         
          <br>
         <%= div_for list do %>
          <%= render partial: "follows/button", locals: {list: list}  %> 
