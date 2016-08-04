@@ -59,6 +59,7 @@ $(document).on("turbolinks:load",function() {
 
                    <div class ="col-sm-7" align= "left">  <h6> <strong> Description: </strong> ${description}</h6>
                    </div>
+                   </div>
                    <div class= "row" align= "center" >
                        <button type="button" class="btn btn-default btn-xs deleteicon" data-itemid= "0" >
                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
@@ -86,6 +87,7 @@ $(document).on("turbolinks:load",function() {
 
                    <div class ="col-sm-7" align= "left">  <h6> <strong> Description: </strong> ${description}</h6>
                    </div>
+                </div>
                    <div class= "row" align= "center" >
                        <button type="button" class="btn btn-default btn-xs deleteicon" data-itemid= "0" >
                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
@@ -96,7 +98,7 @@ $(document).on("turbolinks:load",function() {
         } else if (category_id == 1) {
             var Movie = response.artists.items[0].name;
             var posterlink = response.artists.items[0].images[2].url;
-             $("#itemss").append(
+              $("#itemss").append(
                 `<div class="box col4 lists">  
             <div class = "row" align= "center" >
                 <h5 > <strong>${Movie}
@@ -109,8 +111,9 @@ $(document).on("turbolinks:load",function() {
                         <img src =${posterlink}style= "width: 80%; height: 80%" > <br> 
                      </div>
 
-                   <div class ="col-sm-7" align= "left">  <h6> <strong> Description: </strong> A music artist (commonly referred to as recording artist) is a person who composes, records and releases music, often professionally, through a record label or independently. </h6>
+                   <div class ="col-sm-7" align= "left">  <h6> <strong> Description: </strong> Music Artist</h6>
                    </div>
+                </div>
                    <div class= "row" align= "center" >
                        <button type="button" class="btn btn-default btn-xs deleteicon" data-itemid= "0" >
                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
@@ -118,11 +121,11 @@ $(document).on("turbolinks:load",function() {
                    </div>
                 </div>
         </div>`)
+  }
 
 
 
-
-         else {
+        else {
             var movie = "hello ";
         }
 
