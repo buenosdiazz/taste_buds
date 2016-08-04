@@ -96,8 +96,33 @@ $(document).on("turbolinks:load",function() {
         } else if (category_id == 1) {
             var Movie = response.artists.items[0].name;
             var posterlink = response.artists.items[0].images[2].url;
-            $("#items").append("<li>" + Movie + "<img src=" + posterlink + ">" + "</li>");
-        } else {
+             $("#itemss").append(
+                `<div class="box col4 lists">  
+            <div class = "row" align= "center" >
+                <h5 > <strong>${Movie}
+                 </strong></h5> 
+            </div>
+                <div class = "dividerr" > </div>
+                <div class = "row">
+                    <div class ="col-sm-5" align="center" >
+                        <div class = "dividerr" > </div>
+                        <img src =${posterlink}style= "width: 80%; height: 80%" > <br> 
+                     </div>
+
+                   <div class ="col-sm-7" align= "left">  <h6> <strong> Description: </strong> A music artist (commonly referred to as recording artist) is a person who composes, records and releases music, often professionally, through a record label or independently. </h6>
+                   </div>
+                   <div class= "row" align= "center" >
+                       <button type="button" class="btn btn-default btn-xs deleteicon" data-itemid= "0" >
+                       <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                       </button>
+                   </div>
+                </div>
+        </div>`)
+
+
+
+
+         else {
             var movie = "hello ";
         }
 
