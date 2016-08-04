@@ -37,6 +37,7 @@ class ListsController < ApplicationController
 
   def update
   @list = current_user.owned_lists.find_by(id:params[:id])
+  @list.category_id = params[:category_id]
       if @list.update(list_params)
         redirect_to url_for({ :controller => 'users', :action => 'show', :id => current_user.id })
       else
