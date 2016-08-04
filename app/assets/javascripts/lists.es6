@@ -95,6 +95,7 @@ $(document).on("turbolinks:load",function() {
                    </div>
                 </div>
         </div>`)
+
         } else if (category_id == 1) {
             var Movie = response.artists.items[0].name;
             var posterlink = response.artists.items[0].images[2].url;
@@ -108,7 +109,7 @@ $(document).on("turbolinks:load",function() {
                 <div class = "row">
                     <div class ="col-sm-5" align="center" >
                         <div class = "dividerr" > </div>
-                        <img src =${posterlink}style= "width: 80%; height: 80%" > <br> 
+                        <img src =${posterlink} style= "width: 80%; height: 80%" > <br> 
                      </div>
 
                    <div class ="col-sm-7" align= "left">  <h6> <strong> Description: </strong> Music Artist</h6>
