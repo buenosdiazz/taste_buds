@@ -24,10 +24,12 @@
          <% end %> 
          
 
-
+<% if current_user.id == @user.id %>
         <%= link_to 'Edit', edit_list_path(list) %>
         |
         <%= link_to 'Delete', list, method: :delete, data: { confirm: 'Are you sure?' } %>
+   <% else %> 
+  <%end %>  
         <br>
       </div>
     <% end %> 
